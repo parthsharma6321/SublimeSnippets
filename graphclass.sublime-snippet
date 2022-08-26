@@ -1,0 +1,42 @@
+<snippet>
+	<content><![CDATA[
+class graph{
+public:
+    int V;
+    vi* adj;
+    vb visited;
+
+    graph(int n){
+        this->V = n;
+        adj = new vi[n];
+        visited.resize(n);
+    }
+
+    void addedge(int u, int v){
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
+
+    void dfs(int i){
+        visited[i] = 1;
+        cout << i << " ";
+        repa(j, adj[i]){
+            if(!visited[j]) dfs(j);
+        }
+    }
+
+    void show(){
+        rep(i, 0, V){
+            cout << i << " "; 
+            repa(j, adj[i]) cout << j << " ";
+            cout << "\n";
+        }
+    }
+
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>graphclass</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

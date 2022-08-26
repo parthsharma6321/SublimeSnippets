@@ -1,0 +1,50 @@
+<snippet>
+	<content><![CDATA[
+struct Mint{
+    int v;
+
+    Mint() { v = 0; }
+    Mint(int p) {
+        v = (-MOD < p and p < MOD ? p : p % MOD);
+        if(v < 0) v += MOD;
+    }
+
+    friend bool operator==(const Mint& x, const Mint& y) { return x.v == y.v; }
+    friend bool operator!=(const Mint& x, const Mint& y) { return !(x == y);  }
+    friend bool operator<(const Mint& x, const Mint& y)  { return x.v < y.v;  }
+
+    Mint& operator+=(const Mint& y){ if((v += y.v) >= MOD) v -= MOD;  return (*this); }
+    Mint& operator-=(const Mint& y){ if((v -= y.v) < 0)    v += MOD;  return (*this); }
+    Mint& operator*=(const Mint& y){ v = v * y.v % MOD; return (*this); }
+    Mint& operator/=(const Mint& y){ return (*this) = inv(y);}
+
+    friend Mint power(Mint a, int p){
+        Mint ans = 1;
+        assert(p >= 0);
+        for(; p; p /= 2, a *= a) if(p & 1) ans *= a;
+        return ans;
+    }
+
+    friend Mint inv(const Mint& a) { 
+        assert(a.v != 0); 
+        return power(a, MOD-2);
+    }
+
+    Mint operator-() const { return Mint(-v); }
+    Mint& operator++() { return *this += 1; }
+    Mint& operator--() { return *this -= 1; }
+
+    friend Mint operator+(Mint& x, const Mint& y) { return x += y; }
+    friend Mint operator-(Mint& x, const Mint& y) { return x -= y; }
+    friend Mint operator*(Mint& x, const Mint& y) { return x *= y; }
+    friend Mint operator/(Mint& x, const Mint& y) { return x /= y; }
+
+    friend ostream& operator<<(ostream& os, const Mint& x)  { os << x.v; return os; }
+    friend istream& operator>>(istream& is, Mint& x)        { is >> x.v; return is; }
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Modular</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

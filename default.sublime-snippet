@@ -1,0 +1,98 @@
+<snippet>
+	<content><![CDATA[
+/*Template By Parth Sharma*/
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+using ld = long double;
+
+typedef tree<int,null_type,less<int>,rb_tree_tag,
+tree_order_statistics_node_update> ordered_set;
+
+#ifndef  ONLINE_JUDGE
+#define debug(x) cerr << #x << " = "; deb(x); cerr << endl;
+#else
+#define debug(x)
+#endif
+
+#define rep(i,a,b) for(int i = (a); i < (b); (i)++)
+#define repa(i,s) for(auto &i : (s))
+#define repr(i,a,b) for(int i = (a); i > (b); (i)--)
+#define int long long
+#define all(x) x.begin(), x.end()
+#define rall(x) x.rbegin(), x.rend()
+#define F first
+#define S second
+#define pb push_back
+#define pob pop_back
+#define mp make_pair
+#define sz(s) (int)(s.size())
+#define MOD (int) (1e9 + 7)
+#define INF (int)9e18
+#define eps 0.000000001f
+
+typedef vector<int> vi;
+typedef vector<string> vs;
+typedef vector<bool> vb;
+typedef vector<vi> vvi;
+typedef pair<int,int> pii;
+typedef vector< pair<int,int> > vpii;
+typedef map<int,int> mii;
+typedef map<char,int> mci;
+typedef map<int, vi> mivi;
+typedef map<string, int> msi;
+typedef pair<int,pair<int,int>> piii;
+
+int mod_add(int a, int b, int m){a%=m; b%=m; return ((a+b) %m +m) %m;}
+int mod_mul(int a, int b, int m){a%=m; b%=m; return ((a*b) %m +m) %m;}
+int mod_sub(int a, int b, int m){a%=m; b%=m; return ((a-b) %m +m) %m;}
+
+void deb(int x)    { cerr << x; }
+void deb(string x) { cerr << x; }
+void deb(char x)   { cerr << x; }
+void deb(bool x)   { cerr << x; }
+void deb(ld x)     { cerr << fixed << setprecision(15) << x; }
+
+template<typename T, typename V> void deb(pair<T, V> P){ cerr << "{" ; deb(P.F); cerr << ", "; deb(P.S); cerr << "}";}
+template<typename T, typename V> void deb(map <T, V> v) { cerr << "[ "; repa(u, v) { deb(u); cerr << " ";} cerr << "]";}
+template<typename T> void deb(vector<T> v)   { cerr << "[ "; repa(u, v) { deb(u); cerr << " ";} cerr << "]"; }
+template<typename T> void deb(set<T> v)      { cerr << "[ "; repa(u, v) { deb(u); cerr << " ";} cerr << "]"; }
+template<typename T> void deb(multiset <T> v){ cerr << "[ "; repa(u, v) { deb(u); cerr << " ";} cerr << "]"; }
+
+void run_case(){
+    
+
+}
+int32_t main(){
+
+    ios_base::sync_with_stdio(false); 
+    cin.tie(NULL);  cout.tie(NULL);
+
+    #ifndef ONLINE_JUDGE 
+     freopen("Error.txt", "w", stderr);
+    #endif
+
+   // freopen("input.txt", "r", stdin);
+   // freopen("output.txt", "w", stdout);
+
+    int tt = 1, el = 1;
+    cin >> tt;
+    //cout << fixed << setprecision(12);
+    while(tt--){
+        //cout << "Case #" << el++ << ": ";
+        run_case();
+    }
+    return 0;
+}       
+
+ 
+
+ 
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Default</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

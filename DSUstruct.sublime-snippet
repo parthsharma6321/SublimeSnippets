@@ -1,0 +1,62 @@
+<snippet>
+	<content><![CDATA[
+struct DSU{
+    int n;
+    int* parent;
+    int* rank;
+    int* nodes;
+    int components;
+
+    DSU(int n){
+        this -> n = n;
+        parent = new int[n];
+        rank = new int [n];
+        nodes = new int[n];
+        components = n;
+        for(int i = 0; i < n; i++)
+            parent[i] = i, rank[i] = 0, nodes[i] = 1;
+    }
+
+    int fp(int v){
+        if(parent[v] == v) return v;
+        return parent[v] = fp(parent[v]);
+    }
+
+    void unite(int u, int v){
+        int pu = fp(u);
+        int pv = fp(v);
+        if(pu != pv){
+            if(rank[pu] == rank[pv]) rank[pu]++;
+            if(rank[pu] > rank[pv]){
+                parent[pv] = pu;
+                nodes[pu] += nodes[pv];
+            }
+            else{
+                parent[pu] = pv;
+                nodes[pv] += nodes[pu];
+            }
+            components--;
+        }
+    }
+    vector<vector<int>> connected_components(){
+        map<int, vector<int>> m;
+        for(int i = 0; i < n; i++){
+            int p = fp(i);
+            m[p].push_back(i);
+        }
+        vector<vector<int>> res;
+        for(auto &i: m){
+            sort(i.second.begin(), i.second.end());
+            res.push_back(i.second);
+        }
+        return res;
+    }
+};
+  
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>DSUstruct</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

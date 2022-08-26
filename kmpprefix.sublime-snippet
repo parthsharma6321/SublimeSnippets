@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+vector<int> kmp_prefix(string s){
+    int n = s.size();
+    vector<int> p(n + 1);
+    p[0] = -1;
+    for(int i = 1, k = -1; i <= n; i++){
+       while(k >= 0 and s[k] != s[i - 1])
+         k = p[k];
+       p[i] = k + 1;
+       k = p[i];
+    }
+    return p;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>kmpprefix</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

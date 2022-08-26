@@ -1,0 +1,79 @@
+<snippet>
+	<content><![CDATA[
+struct item{
+    
+};
+
+struct segtree{
+    int size;
+    vector<item> values;
+
+    item NEUTRAL_ELEMENT = {};
+
+    item single(int n){
+        return {};
+    }
+
+    segtree(int n){
+        size = 1;
+        while(size < n) size *= 2;
+        values.resize(2 * size);
+    }
+
+    item merge(item a, item b){
+        
+    }
+
+    void build(vector<int>& v, int x, int lx, int rx){
+        if(rx - lx == 1){
+            if(lx < sz(v))
+                values[x] = single(v[lx]);
+            return;
+        }
+        int m = (lx + rx) / 2;
+        build(v, 2 * x + 1, lx, m);
+        build(v, 2 * x + 2, m, rx);
+        values[x] = merge(values[2 * x + 1], values[2 * x + 2]);
+    }
+
+    void build(vector<int>& v){
+        build(v, 0, 0, size);
+    }
+
+    void set(int i, int v, int x, int lx, int rx){
+        if(rx - lx == 1){
+            values[x] = single(v);
+            return;
+        }
+        int m = (lx + rx) / 2;
+        if(i < m) {
+            set(i, v, 2 * x + 1, lx, m);
+        }   
+        else{
+            set(i, v, 2 * x + 2, m, rx);
+        }
+        values[x] = merge(values[2 * x + 1], values[2 * x + 2]);
+    }
+
+    void set(int i, int v){
+        set(i, v, 0, 0, size);
+    }
+
+    item calc(int l, int r, int x, int lx, int rx){
+        if(l >= rx or lx >= r) return NEUTRAL_ELEMENT;
+        if(lx >= l and rx <= r) return values[x];
+        int m = (lx + rx) / 2;
+        return merge(calc(l, r, 2 * x + 1, lx, m), calc(l, r, 2 * x + 2, m, rx));
+    }
+
+    item calc(int l, int r){
+        return calc(l, r, 0, 0, size);
+    }
+
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>segmenttree</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

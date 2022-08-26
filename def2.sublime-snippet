@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+#include<bits/stdc++.h>
+using namespace std;
+
+void run_case(){
+    
+}   
+int32_t main(){
+
+    ios_base::sync_with_stdio(false); 
+    cin.tie(NULL);  cout.tie(NULL);
+
+    int tt = 1;
+    cin >> tt;
+    while(tt--){
+        //cout << "Case #" << el++ << ": ";
+        run_case();
+    }
+    return 0;
+}       
+
+ 
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>def2</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

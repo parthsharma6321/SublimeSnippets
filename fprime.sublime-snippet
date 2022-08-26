@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+vi primefactors(int n){
+  vi res;
+  while(n%2 == 0){
+    res.pb(2);
+    n/=2;
+  }
+  for(int i=3;i<=sqrt(n);i+=2){
+    while(n % i == 0){
+      res.pb(i);
+      n/=i;
+    }
+  }
+  if(n > 2) res.pb(n);
+  return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fprime</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

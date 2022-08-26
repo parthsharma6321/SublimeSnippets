@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+vector<int> LIS(vector<int>& A){
+    int n = A.size();
+    /*for(int i = 0; i < n; i++){
+        A[i] *= -1;
+    }*/
+    vector<int> lis;
+    for(int i = 0; i < n; i++){
+        int pos = lower_bound(lis.begin(), lis.end(), A[i]) - lis.begin();
+        if(pos == lis.size()){
+            lis.push_back(A[i]);
+        }
+        else{
+            lis[pos] = A[i];
+        }
+    }
+    return lis;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>lissnip</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet wiint trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

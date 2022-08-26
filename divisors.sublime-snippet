@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+vi F(int n){
+    vi v;
+    for(int i = 1; i <= sqrt(n); i++){
+        if(n % i == 0 && n / i != i){
+            v.pb(i);
+            v.pb(n/i);
+        }
+        else if(n % i == 0) v.pb(i);
+    }
+    sort(rall(v));
+    return v;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Divisors</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
